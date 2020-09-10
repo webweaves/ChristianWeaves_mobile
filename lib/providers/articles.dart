@@ -1,15 +1,16 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart';
 
-class Articles {
-  Future<void> getFeaturedArticle() async {
-    const url = 'https://url/rest/articles/getFeatured';
-    try {
-      final response = await http.get(url);
-      print(json.decode(response.body));
-    } catch (error) {
-      throw (error);
-    }
+import 'package:flutter/material.dart';
+
+import '../models/article.dart';
+
+class Articles with ChangeNotifier {
+  List<Article> _articles = [
+    Article(id: '1', title: 'Title Article1', subtitle: 'Subtitle Article1'),
+    Article(id: '2', title: 'Title Article2', subtitle: 'Subtitle Article2'),
+  ];
+
+  List<Article> get articles {
+    return [..._articles];
   }
 }

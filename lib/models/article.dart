@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class ArticleItem {
+class Article {
   final String id;
   final String title;
   final String subtitle;
@@ -13,7 +13,7 @@ class ArticleItem {
   final bool hidden;
   final bool draft;
 
-  ArticleItem(
+  Article(
       {@required this.id,
       @required this.title,
       @required this.subtitle,
