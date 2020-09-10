@@ -1,48 +1,37 @@
 import 'package:flutter/material.dart';
-// import 'package:provider/provider.dart';
-import 'providers/articles.dart';
+import 'providers/articles_dao.dart';
+
+import 'models/article.dart';
 
 void main() {
   runApp(ChristianWeavesDotComApp());
 }
 
 class ChristianWeavesDotComApp extends StatelessWidget {
-  @override
-  void initState() {}
+  final List<Article> _articles = [
+    Article(id: '1', title: 'Title Article1', subtitle: 'Subtitle Article1'),
+    Article(id: '2', title: 'Title Article2', subtitle: 'Subtitle Article2'),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Christian Weaves App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: TheHomePage(title: 'Christian Weaves dot com'),
+      home: HomePage(),
     );
   }
 }
 
-class TheHomePage extends StatefulWidget {
-  TheHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
-  @override
-  _TheHomePageState createState() => _TheHomePageState();
-}
-
-class _TheHomePageState extends State<TheHomePage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text('Christan Weaves')),
       body: Column(
-        children: [
-          RaisedButton(
-            child: Text('Test button'),
-            onPressed: () => print(Articles().getFeaturedArticle()),
+        children: <Widget>[
+          Container(
+            child: Card(
+              child: Text('Bonza'),
+            ),
           )
         ],
       ),
