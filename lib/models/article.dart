@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 class Article {
-  final String id;
+  final int id;
   final String title;
   final String subtitle;
   final String body;
@@ -25,4 +25,13 @@ class Article {
       this.deleted,
       this.hidden,
       this.draft});
+
+  factory Article.fromJson(Map<String, dynamic> json) {
+    return Article(
+      id: json['id'],
+      title: json['title'],
+      subtitle: json['subtitle'],
+      icon: json['icon'],
+    );
+  }
 }
