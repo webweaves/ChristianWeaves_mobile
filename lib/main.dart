@@ -1,9 +1,7 @@
-import 'dart:io' as Io;
-import 'dart:convert';
-import 'package:ChristianWeaves_mobile/providers/articleCard.dart';
+import 'articleCard.dart';
+import 'featuredArticleCard.dart';
 import 'package:flutter/material.dart';
 import 'providers/articles_dao.dart' as dao;
-
 import 'models/article.dart';
 
 void main() {
@@ -21,63 +19,51 @@ class _HomePageState extends State<ChristianWeavesDotComApp> {
   @override
   void initState() {
     super.initState();
-    articles = grabAllArticles();
+    //articles = grabAllArticles();
   }
 
-  List<Article> articles = [];
-
-  Image getImage(img64) {
-    final decodedBytes = base64Decode(img64);
-    return Image.memory(
-      decodedBytes,
-      width: 75,
-      height: 75,
-    );
-  }
+  final List<Article> _articles = [
+    Article(id: 1, title: 'Title Article1', subtitle: 'Subtitle Article1'),
+    Article(id: 2, title: 'Title Article2', subtitle: 'Subtitle Article2'),
+  ];
 
   grabFeatured() {
     dao.Articles().fetchFeaturedArticle().then((value) => print(value.title));
   }
 
-  grabAllArticles() {
-    dao.Articles().fetchAllArticles().then((value) => {
-          value.forEach((element) {
-            articles.add(element);
-          })
-        });
-  }
+  grabAllArticles() {}
 
-  @override
+  @override // dao.Articles().fetchAllArticles().then((value) => {
+  //       value.forEach((element) {
+  //         articles.add(element);
+  //       })
+  //     });
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Christan Weaves')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            height: 75,
-            child: Card(
-              child: Text('Header'),
-              elevation: 5,
-              color: Colors.blue[200],
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Christan Weaves')),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            FeaturedArticleCard(
+                new Article(id: 1, title: 'Test', subtitle: 'Test')),
+            Column(
+              children: _articles.map((article) {
+                return ArticleCard(
+                    article.icon, article.title, article.subtitle);
+              }).toList(),
             ),
-          ),
-          Column(
-            children: articles.map((article) {
-              return ArticleCard(article.icon, article.title, article.subtitle);
-            }).toList(),
-          ),
-          Column(
-            children: [
-              RaisedButton(
-                child: Text("Rock & Roll"),
-                onPressed: grabFeatured,
-              ),
-            ],
-          )
-        ],
+            Column(
+              children: [
+                RaisedButton(
+                  child: Text("Rock & Roll"),
+                  onPressed: grabFeatured,
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

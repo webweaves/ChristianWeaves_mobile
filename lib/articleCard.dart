@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class ArticleCard extends StatelessWidget {
   final String _icon;
@@ -6,6 +7,16 @@ class ArticleCard extends StatelessWidget {
   final String _subtitle;
 
   ArticleCard(this._icon, this._title, this._subtitle);
+
+  Image getImage(img64) {
+    return null;
+    final decodedBytes = base64Decode(img64);
+    return Image.memory(
+      decodedBytes,
+      width: 75,
+      height: 75,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
