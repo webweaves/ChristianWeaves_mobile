@@ -1,5 +1,6 @@
 import 'dart:io' as Io;
 import 'dart:convert';
+import 'package:ChristianWeaves_mobile/providers/articleCard.dart';
 import 'package:flutter/material.dart';
 import 'providers/articles_dao.dart' as dao;
 
@@ -16,7 +17,7 @@ class ChristianWeavesDotComApp extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State {
+class _HomePageState extends State<ChristianWeavesDotComApp> {
   @override
   void initState() {
     super.initState();
@@ -65,37 +66,7 @@ class _HomePageState extends State {
           ),
           Column(
             children: articles.map((article) {
-              return Card(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.all(5),
-                      child: getImage(article.icon),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: 15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            article.title,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            article.subtitle,
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              );
+              return ArticleCard(article.icon, article.title, article.subtitle);
             }).toList(),
           ),
           Column(
