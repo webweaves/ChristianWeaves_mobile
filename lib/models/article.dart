@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
-class Article {
+class Article extends StatefulWidget {
   final int id;
   final String title;
   final String subtitle;
@@ -13,8 +14,9 @@ class Article {
   final bool hidden;
   final bool draft;
 
-  Article(
-      {@required this.id,
+  const Article(
+      {Key: key,
+      @required this.id,
       @required this.title,
       @required this.subtitle,
       this.body,
@@ -24,7 +26,8 @@ class Article {
       this.icon,
       this.deleted,
       this.hidden,
-      this.draft});
+      this.draft})
+      : super(key: key);
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
@@ -33,5 +36,10 @@ class Article {
       subtitle: json['subtitle'],
       icon: json['icon'],
     );
+  }
+
+  @override
+  State<StatefulWidget> createState() {
+    throw UnimplementedError();
   }
 }
