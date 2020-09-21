@@ -1,8 +1,9 @@
-import 'widgets/articleCard.dart';
-import 'featuredArticleCard.dart';
 import 'package:flutter/material.dart';
-import 'providers/articles_dao.dart' as dao;
+
 import 'models/article.dart';
+import 'providers/articles_dao.dart' as dao;
+import 'widgets/articleCard.dart';
+import 'widgets/featuredArticleCard.dart';
 
 void main() {
   runApp(ChristianWeavesDotComApp());
@@ -47,24 +48,38 @@ class _HomePageState extends State<ChristianWeavesDotComApp> {
         appBar: AppBar(
           title: Text('Christian Weaves'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            FeaturedArticleCard(new Article(
-              id: 1,
-              title: 'Test',
-              subtitle: 'Test',
-            )),
-            Column(
-              children: [
-                RaisedButton(
-                  child: Text("Rock & Roll"),
-                  onPressed: grabFeatured,
+        body: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              FeaturedArticleCard(
+                _articles[0],
+              ),
+              Container(
+                child: FutureBuilder(
+                  future: dao.Articles().fetchAllArticles(),
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.data == null) {
+                      return Container(
+                        child: Center(
+                          child: Text("Loading...."),
+                        ),
+                      );
+                    } else {
+                      return ListView.builder(
+                          itemCount: snapshot.data.length,
+                          itemBuilder: (BuildContext ctx, int index) {
+                            return ListTile(
+                              title: Text(snapshot.data[index].title),
+                            );
+                          });
+                    }
+                  },
                 ),
-              ],
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

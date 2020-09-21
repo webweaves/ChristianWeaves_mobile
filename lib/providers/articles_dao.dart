@@ -18,7 +18,7 @@ class Articles {
     const url = 'https://scottfreeit.com/rest/articles/getAllArticles';
     try {
       final response = await http.get(url);
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      final extractedData = json.decode(response.body);
       final List<Article> loadedArticles = [];
       extractedData.forEach((id, article) {
         loadedArticles.add(Article.fromJson(json.decode(article)));

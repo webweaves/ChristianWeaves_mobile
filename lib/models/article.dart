@@ -15,8 +15,7 @@ class Article extends StatefulWidget {
   final bool draft;
 
   const Article(
-      {Key: key,
-      @required this.id,
+      {@required this.id,
       @required this.title,
       @required this.subtitle,
       this.body,
@@ -26,8 +25,7 @@ class Article extends StatefulWidget {
       this.icon,
       this.deleted,
       this.hidden,
-      this.draft})
-      : super(key: key);
+      this.draft});
 
   factory Article.fromJson(Map<String, dynamic> json) {
     return Article(
