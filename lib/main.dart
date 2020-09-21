@@ -1,4 +1,4 @@
-import 'articleCard.dart';
+import 'widgets/articleCard.dart';
 import 'featuredArticleCard.dart';
 import 'package:flutter/material.dart';
 import 'providers/articles_dao.dart' as dao;
@@ -40,20 +40,22 @@ class _HomePageState extends State<ChristianWeavesDotComApp> {
   //     });
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Christan Weaves')),
+        appBar: AppBar(
+          title: Text('Christian Weaves'),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            FeaturedArticleCard(
-                new Article(id: 1, title: 'Test', subtitle: 'Test')),
-            Column(
-              children: _articles.map((article) {
-                return ArticleCard(
-                    article.icon, article.title, article.subtitle);
-              }).toList(),
-            ),
+            FeaturedArticleCard(new Article(
+              id: 1,
+              title: 'Test',
+              subtitle: 'Test',
+            )),
             Column(
               children: [
                 RaisedButton(
