@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
-class Article extends StatefulWidget {
+class Article {
   final int id;
   final String title;
   final String subtitle;
@@ -34,10 +34,5 @@ class Article extends StatefulWidget {
       subtitle: json['subtitle'],
       icon: json['icon'],
     );
-  }
-
-  @override
-  State<StatefulWidget> createState() {
-    throw UnimplementedError();
   }
 }
