@@ -7,19 +7,7 @@ void main() {
   runApp(ChristianWeavesDotComApp());
 }
 
-class ChristianWeavesDotComApp extends StatefulWidget {
-  ChristianWeavesDotComApp({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<ChristianWeavesDotComApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class ChristianWeavesDotComApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,7 +26,7 @@ class _HomePageState extends State<ChristianWeavesDotComApp> {
             children: <Widget>[
               BannerCard(),
               Container(
-                height: 400,
+                height: 460,
                 child: ArticleList(),
               )
             ],

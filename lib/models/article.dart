@@ -33,6 +33,7 @@ class Article {
       title: json['title'],
       subtitle: json['subtitle'],
       icon: json['icon'],
+      body: json['body'],
     );
   }
 }
