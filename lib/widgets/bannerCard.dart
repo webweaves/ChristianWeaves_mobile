@@ -5,9 +5,9 @@ class BannerCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 45,
+      height: 50,
       child: Card(
-        child: Text("SFIT"),
+        child: Image.asset('assets/images/background_small.png'),
         elevation: 5,
         color: Colors.blue[200],
       ),

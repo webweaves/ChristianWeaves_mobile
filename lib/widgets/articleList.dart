@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../providers/api.dart' as api;
 import 'articleCard.dart';
+import 'loadingAnimation.dart';
 
 class ArticleList extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _ArticleListState extends State<ArticleList> {
           if (snapshot.data == null) {
             return Container(
               child: Center(
-                child: Text("Loading...."),
+                child: LoadingAnimation(),
               ),
             );
           } else {
