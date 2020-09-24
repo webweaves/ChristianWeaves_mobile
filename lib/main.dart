@@ -25,10 +25,11 @@ class ChristianWeavesDotComApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               BannerCard(),
-              Container(
-                height: 630,
-                child: ArticleList(),
-              )
+              Expanded(
+                child: Container(
+                  child: ArticleList(),
+                ),
+              ),
             ],
           ),
         ),
