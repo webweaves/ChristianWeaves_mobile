@@ -26,7 +26,7 @@ class ChristianWeavesDotComApp extends StatelessWidget {
             children: <Widget>[
               BannerCard(),
               Container(
-                height: 460,
+                height: 630,
                 child: ArticleList(),
               )
             ],

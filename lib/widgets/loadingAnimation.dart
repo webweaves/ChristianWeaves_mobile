@@ -5,10 +5,10 @@ class LoadingAnimation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlareActor(
-      'assets/Loading.flr',
+      'assets/Loader.flr',
       alignment: Alignment.center,
       fit: BoxFit.contain,
-      animation: 'Alarm',
+      animation: 'Untitled',
     );
   }
 }
