@@ -36,7 +36,7 @@ class DetailedArticle extends StatelessWidget {
                       this.article.subtitle,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 19,
+                        fontSize: 20,
                       ),
                     )),
                 Container(
