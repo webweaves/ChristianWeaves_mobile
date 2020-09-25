@@ -22,12 +22,12 @@ class _LoadingAnimationState extends State<LoadingAnimation> {
         _loadingVisible = true;
       });
     });
-    _timer = new Timer(const Duration(milliseconds: 3000), () {
+    _timer = new Timer(const Duration(milliseconds: 1500), () {
       setState(() {
         _loadingVisible = false;
       });
     });
-    _timer = new Timer(const Duration(milliseconds: 4000), () {
+    _timer = new Timer(const Duration(milliseconds: 2000), () {
       setState(() {
         _loadingVisible = true;
         _theText = "Loading....";
