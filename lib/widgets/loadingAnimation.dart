@@ -59,7 +59,7 @@ class _LoadingAnimationState extends State<LoadingAnimation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue[200],
+      color: Colors.blue[100],
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
