@@ -7,10 +7,11 @@ import '../models/article.dart';
 class DetailedArticle extends StatelessWidget {
   //apply certain regex to make the web content more ledgible
   String _parseHtml(String body) {
-    RegExp exp = RegExp(r"<code[^>]*>", multiLine: true, caseSensitive: true);
+    //RegExp exp = RegExp(r"<code[^>]*>", multiLine: true, caseSensitive: true);
+    //body = body.replaceAll(exp, '<code>');
+    RegExp exp = RegExp(r"<pre>", multiLine: true, caseSensitive: true);
     body = body.replaceAll(exp, '');
-    body = body.replaceAll(new RegExp(r"&gt;", multiLine: true), '>');
-    body = body.replaceAll(new RegExp(r"&lt;", multiLine: true), '<');
+    body = body.replaceAll(new RegExp(r"%&gt;", multiLine: true), '<br/>%>');
     return body;
   }
 
