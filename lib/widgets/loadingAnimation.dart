@@ -18,31 +18,41 @@ class _LoadingAnimationState extends State<LoadingAnimation> {
 
   _LoadingAnimationState() {
     _timer = new Timer(const Duration(milliseconds: 0), () {
-      setState(() {
-        _loadingVisible = true;
-      });
+      if (_timer.isActive) {
+        setState(() {
+          _loadingVisible = true;
+        });
+      }
     });
     _timer = new Timer(const Duration(milliseconds: 1500), () {
-      setState(() {
-        _loadingVisible = false;
-      });
+      if (_timer.isActive) {
+        setState(() {
+          _loadingVisible = false;
+        });
+      }
     });
     _timer = new Timer(const Duration(milliseconds: 2000), () {
-      setState(() {
-        _loadingVisible = true;
-        _theText = "Loading....";
-      });
+      if (_timer.isActive) {
+        setState(() {
+          _loadingVisible = true;
+          _theText = "Loading....";
+        });
+      }
     });
     _timer = new Timer(const Duration(milliseconds: 9000), () {
-      setState(() {
-        _loadingVisible = false;
-      });
+      if (_timer.isActive) {
+        setState(() {
+          _loadingVisible = false;
+        });
+      }
     });
     _timer = new Timer(const Duration(milliseconds: 10000), () {
-      setState(() {
-        _loadingVisible = true;
-        _theText = "Problem connecting!";
-      });
+      if (_timer.isActive) {
+        setState(() {
+          _loadingVisible = true;
+          _theText = "Problem connecting!";
+        });
+      }
     });
   }
 
