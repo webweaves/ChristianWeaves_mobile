@@ -1,4 +1,4 @@
-package com.example.ChristianWeaves_mobile
+package com.scottfreeit.ChristianWeaves_mobile
 
 import io.flutter.embedding.android.FlutterActivity
 
