@@ -1,7 +1,8 @@
-import 'package:ChristianWeaves_mobile/widgets/articleList.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/bannerCard.dart';
+import './widgets/articleList.dart';
+import './widgets/bannerCard.dart';
+import './globals.dart' as global;
 
 void main() {
   runApp(ChristianWeavesDotComApp());
@@ -17,7 +18,7 @@ class ChristianWeavesDotComApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Christian Weaves'),
+          title: Text(global.siteTitle),
         ),
         body: Container(
           child: Column(

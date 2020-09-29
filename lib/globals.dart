@@ -1,1 +1,1 @@
-String siteTitle = "ChristianWeaves.com";
+String siteTitle = "ScottFreeIT";

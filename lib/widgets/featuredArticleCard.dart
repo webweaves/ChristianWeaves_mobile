@@ -1,5 +1,6 @@
-import 'package:ChristianWeaves_mobile/models/article.dart';
 import 'package:flutter/material.dart';
+
+import '../models/article.dart';
 
 class FeaturedArticleCard extends StatelessWidget {
   final Article _featuredArticle;
